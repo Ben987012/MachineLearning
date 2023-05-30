@@ -10,12 +10,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
+def center_content():
+    # Középre igazított gombok
+    st.write('<div style="text-align:center; font-size:24px">')
+    st.write('</div>', unsafe_allow_html=True)
+
+    # Középre igazított tartalom
+    st.write('</div>', unsafe_allow_html=True)
+
+
 def add_bg_from_url():
     st.markdown(
          f"""
          <style>
          .stApp {{
-             background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_the_Sz%C3%A9kelys.svg/1200px-Flag_of_the_Sz%C3%A9kelys.svg.png");
+             background-image: url("https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
@@ -59,4 +68,6 @@ def main():
 
 if __name__ == '__main__':
    main()
+    # Alkalmazás futtatása
+    center_content()
    add_bg_from_url()
