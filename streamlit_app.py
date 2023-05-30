@@ -11,20 +11,23 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
-
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background: url("https://www.onlygfx.com/wp-content/uploads/2018/07/4-abstract-acrylic-green-brush-stroke-background-1-1024x768.jpg")
+    }
+   .sidebar .sidebar-content {
+        background: url("https://www.onlygfx.com/wp-content/uploads/2018/07/4-abstract-acrylic-green-brush-stroke-background-1-1024x768.jpg")
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 def main():
-    # Háttérkép beállítása
-    page_bg_img = '''
-    <style>
-        body {
-            background-image: url("https://www.onlygfx.com/wp-content/uploads/2018/07/4-abstract-acrylic-green-brush-stroke-background-1-1024x768.jpg");
-            background-size: cover;
-        }
-    </style>'''
-    # Háttérkép alkalmazása
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    
     st.title('Stroke előrejelző app')
     
     if st.button('ROC görbe megjelenítése'):
