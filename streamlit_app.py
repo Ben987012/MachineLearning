@@ -15,19 +15,16 @@ def main():
     st.title('Stroke előrejelző app')
 
     if st.button('ROC görbe megjelenítése'):
-        # Valószínűségek és címkék generálása
-        np.random.seed(0)
-        n_samples = 1000
-        y_true = np.random.randint(2, size=n_samples)
-        y_scores = np.random.rand(n_samples)
+       # Valószínűségek meghatározása
+        y_scores = knn.predict_proba(x_test)[:, 1]
 
         # ROC görbe kiszámítása
-        fpr, tpr, _ = roc_curve(y_true, y_scores)
+        fpr, tpr, _ = roc_curve(y_test, y_scores)
         roc_auc = auc(fpr, tpr)
 
         # Streamlit alkalmazás létrehozása
-        st.title("ROC görbe")
-        st.write("Ez egy egyszerű példa a ROC görbe megjelenítésére a Streamlit segítségével.")
+        st.title("KNN ROC görbe")
+        st.write("Ez egy példa a K-nearest Neighbors (KNN) modell ROC görbéjének megjelenítésére a Streamlit segítségével.")
 
         # ROC görbe kirajzolása
         fig, ax = plt.subplots()
