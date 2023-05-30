@@ -29,24 +29,24 @@ def main():
        # Tesztadatok előrejelzése
        y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
-        # ROC görbe számítása
-        fpr, tpr, thresholds = roc_curve(y_test, y_pred)
-        roc_auc = auc(fpr, tpr)
+       # ROC görbe számítása
+       fpr, tpr, thresholds = roc_curve(y_test, y_pred)
+       roc_auc = auc(fpr, tpr)
 
-        # Streamlit alkalmazás
-        st.title("ROC görbe")
+       # Streamlit alkalmazás
+       st.title("ROC görbe")
 
-        # ROC görbe megjelenítése
-        plt.figure(figsize=(8, 6))
-        plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
-        plt.plot([0, 1], [0, 1], color='red', linestyle='--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.0])
-        plt.xlabel('True Positive arány')
-        plt.ylabel('False Positive arány')
-        plt.title('Receiver Operating Characteristic')
-        plt.legend(loc="lower right")
-        st.pyplot(plt)
+       # ROC görbe megjelenítése
+       plt.figure(figsize=(8, 6))
+       plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
+       plt.plot([0, 1], [0, 1], color='red', linestyle='--')
+       plt.xlim([0.0, 1.0])
+       plt.ylim([0.0, 1.0])
+       plt.xlabel('True Positive arány')
+       plt.ylabel('False Positive arány')
+       plt.title('Receiver Operating Characteristic')
+       plt.legend(loc="lower right")
+       st.pyplot(plt)
 
     if st.button('Modellek összevetése'):
         add_bg_from_url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg")
