@@ -38,9 +38,8 @@ def main():
         # ROC görbe megjelenítése
         plt.figure(figsize=(8, 6))
         plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
-        plt.plot([0, 1], [0, 1], color='red', linestyle='--', label='Véletlenszerű előrejelzés (AUC = 0.50)')
         plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
+        plt.ylim([0.0, 1.0])
         plt.xlabel('Hamis pozitív arány')
         plt.ylabel('Eredeti pozitív arány')
         plt.title('Receiver Operating Characteristic')
