@@ -25,7 +25,6 @@ def main():
     st.title("STROKE ELŐREJELZŐ APP")
     
     if st.button('ROC görbe megjelenítése'):
-        add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
         # Tesztadatok előrejelzése
         y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
@@ -47,9 +46,9 @@ def main():
         plt.title('Receiver Operating Characteristic')
         plt.legend(loc="lower right")
         st.pyplot(plt)
+        add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
 
     if st.button('Modellek összevetése'):
-        add_bg_from_url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg")
         rf_accuracy = rf.score(x_test, y_test)
         knn_accuracy = knn.score(x_test, y_test)
         svm_accuracy = svm.score(x_test, y_test)
@@ -57,7 +56,8 @@ def main():
         st.write('RandomForest pontossága: {}%'.format(round((rf_accuracy*100),2)))
         st.write('KNN pontossága: {}%'.format(round((knn_accuracy*100),2)))
         st.write('SVM pontossága: {}%'.format(round((svm_accuracy*100),2)))
-       
+        add_bg_from_url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg")
+        
         # Streamlit alkalmazás
         st.title("Háttér visszaállítás")
             add_bg_from_url("https://static.toiimg.com/photo/msid-87343087/87343087.jpg")
