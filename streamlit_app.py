@@ -19,12 +19,11 @@ def main():
         y_scores = knn.predict_proba(x_test)[:, 1]
 
         # ROC görbe kiszámítása
-        fpr, tpr, _ = roc_curve(y_test, y_scores)
+        fpr, tpr, _ = roc_curve(x_test, y_test)
         roc_auc = auc(fpr, tpr)
 
         # Streamlit alkalmazás létrehozása
         st.title("KNN ROC görbe")
-        st.write("Ez egy példa a K-nearest Neighbors (KNN) modell ROC görbéjének megjelenítésére a Streamlit segítségével.")
 
         # ROC görbe kirajzolása
         fig, ax = plt.subplots()
