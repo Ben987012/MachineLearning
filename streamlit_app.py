@@ -14,7 +14,7 @@ from sklearn.metrics import roc_curve, auc
 def main():
     st.title('Stroke előrejelző app')
 
-    if st.button('Konfúziós mátrix megjelenítése'):
+    if st.button('ROC görbe megjelenítése'):
         # Valószínűségek és címkék generálása
         np.random.seed(0)
         n_samples = 1000
@@ -44,9 +44,9 @@ def main():
         knn_accuracy = knn.score(x_test, y_test)
         dtc_accuracy = dtc.score(x_test, y_test)
         # Kiíratás
-        st.write('RandomForest pontossága: ', rf_accuracy) #{}%'.format(rf_accuracy*100))
-        st.write('KNN pontossága: ', knn_accuracy) #{}%'.format(knn_accuracy*100))
-        st.write('SVM pontossága: ', dtc_accuracy) #{}%'.format(dtc_accuracy*100))
+        st.write('RandomForest pontossága: {}%'.format(rf_accuracy*100))
+        st.write('KNN pontossága: {}%'.format(knn_accuracy*100))
+        st.write('SVM pontossága: {}%'.format(dtc_accuracy*100))
 
 if __name__ == '__main__':
     main()
