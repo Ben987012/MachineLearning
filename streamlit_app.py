@@ -16,10 +16,10 @@ def main():
 
     if st.button('ROC görbe megjelenítése'):
        # Valószínűségek meghatározása
-        y_scores = knn.predict_proba(x_test)[:, 1]
+        y_scores = knn.predict_proba(y_test)[:, 1]
 
         # ROC görbe kiszámítása
-        fpr, tpr, _ = roc_curve(x_test, y_test)
+        fpr, tpr, _ = roc_curve(x_test, y_scores)
         roc_auc = auc(fpr, tpr)
 
         # Streamlit alkalmazás létrehozása
