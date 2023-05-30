@@ -1,19 +1,16 @@
 import streamlit as st
-from style import *
+
 from strokePred import rf,knn,dtc, svm
 from strokePred import x_test, y_test
 
 from sklearn.metrics import confusion_matrix, classification_report
 from mlxtend.plotting import plot_confusion_matrix
 
-import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
-def local_css(file_name):
-    with open(filename) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
 def main():
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
@@ -48,5 +45,13 @@ def main():
         st.write('SVM pontossága: {}%'.format(round((svm_accuracy*100),2)))
 
 if __name__ == '__main__':
-    local_css("style.css")
-    main()
+    st.markdown(
+   f”””
+   <style>
+   p {
+   background-image: url(‘img_file.jpg’);
+   }
+   </style>
+   ”””,
+   unsafe_allow_html=True)
+   main()
