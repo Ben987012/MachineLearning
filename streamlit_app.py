@@ -1,6 +1,6 @@
 import streamlit as st
 
-from strokePred import rf,knn,dtc
+from strokePred import rf,knn,dtc, svm
 from strokePred import x_test, y_test
 
 from sklearn.metrics import confusion_matrix, classification_report
@@ -16,7 +16,7 @@ def main():
 
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
-        y_pred = dtc.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
+        y_pred = svm.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
         # ROC görbe számítása
         fpr, tpr, thresholds = roc_curve(y_test, y_pred)
