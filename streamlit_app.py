@@ -27,6 +27,24 @@ st.markdown(
 
 
 def main():
+    main_bg = "https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg"
+    main_bg_ext = "jpg"
+
+    side_bg = "https://htmlcolorcodes.com/assets/images/colors/light-green-color-solid-background-1920x1080.png"
+    side_bg_ext = "jpg"
+
+    st.markdown(
+        f"""
+        <style>
+        .reportview-container {{
+            background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()})
+        }}
+        .sidebar .sidebar-content {{
+            background: url(data:image/{side_bg_ext};base64,{base64.b64encode(open(side_bg, "rb").read()).decode()})
+        }}
+         </style>
+        """,
+     unsafe_allow_html=True)
     
     st.title('Stroke előrejelző app')
     
