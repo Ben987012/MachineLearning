@@ -12,7 +12,7 @@ from sklearn.metrics import roc_curve, auc
 
 def center_content():
     # Középre igazított gombok
-    st.write('<div style="text-align:center; font-size:24px">')
+    st.write('<div style="text-align:center">')
     st.write('</div>', unsafe_allow_html=True)
 
     # Középre igazított tartalom
