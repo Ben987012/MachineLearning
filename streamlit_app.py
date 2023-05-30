@@ -45,7 +45,7 @@ def main():
             plt.ylabel('False Positive arány')
             plt.title('Receiver Operating Characteristic')
             plt.legend(loc="lower right")
-            st.pyplot(plt)
+          st.pyplot(plt)
         
 
         if st.button('Modellek összevetése'):
