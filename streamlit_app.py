@@ -7,12 +7,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
-def add_bg_from_url(url):
+def add_bg_from_url(url_name):
     st.markdown(
          f"""
          <style>
          .stApp {{
-             background-image: url(url);
+             background-image: url(url_name);
              background-attachment: fixed;
              background-size: cover
          }}
