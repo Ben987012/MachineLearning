@@ -11,20 +11,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
-def main():
-    
-    st.title('Stroke előrejelző app')
-    st.markdown(
-    """
-    <style>
-    body {
-    background-color: #1c6ca9;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
+def local_css(file_name):
+    with open(filename) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+def main():
 if st.button('ROC görbe megjelenítése'):
     # Tesztadatok előrejelzése
     y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
@@ -80,4 +71,5 @@ if st.button('ROC görbe megjelenítése'):
         st.write('SVM pontossága: {}%'.format(round((svm_accuracy*100),2)))
 
 if __name__ == '__main__':
+    local_css("style.css")
     main()
