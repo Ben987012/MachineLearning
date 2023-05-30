@@ -27,7 +27,7 @@ def main():
     if st.button('ROC görbe megjelenítése'):
        add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
        # Tesztadatok előrejelzése
-        y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
+       y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
         # ROC görbe számítása
         fpr, tpr, thresholds = roc_curve(y_test, y_pred)
