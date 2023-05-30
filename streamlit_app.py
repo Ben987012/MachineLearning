@@ -36,7 +36,6 @@ def main():
 
         # Streamlit alkalmazás
         st.title("ROC görbe")
-
         # ROC görbe megjelenítése
         plt.figure(figsize=(8, 6))
         plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
