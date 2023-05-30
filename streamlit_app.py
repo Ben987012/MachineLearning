@@ -11,41 +11,40 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
-st.markdown(
+def main():
+    st.set_page_config(layout="wide", page_title='Stroke előrejelző app', page_icon="🧠")
+    st.title('Stroke előrejelző app')
+    st.markdown(
     """
     <style>
-    .reportview-container {
-        background: url("https://www.onlygfx.com/wp-content/uploads/2018/07/4-abstract-acrylic-green-brush-stroke-background-1-1024x768.jpg")
-    }
-   .sidebar .sidebar-content {
-        background: url("https://www.onlygfx.com/wp-content/uploads/2018/07/4-abstract-acrylic-green-brush-stroke-background-1-1024x768.jpg")
+    body {
+    background-color: #1c6ca9;
     }
     </style>
     """,
     unsafe_allow_html=True
-)
+    )
+
+if st.button('ROC görbe megjelenítése'):
+    # Tesztadatok előrejelzése
+    y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
+
+    # ROC görbe számítása
+    fpr, tpr, thresholds = roc_curve(y_test, y_pred)
+    roc_auc = auc(fpr, tpr)
+
+    # Streamlit alkalmazás
+    st.title("ROC görbe")
+    plt.figure(figsize=(8, 6))
+    plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
+    plt.plot([0, 1], [0, 1], color='red', linestyle='--', label='Véletlenszerű előrejelzés (AUC = 0.50)')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('Hamis pozitív arány')
 
 
-def main():
-    main_bg = "https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg"
-    main_bg_ext = "jpg"
 
-    side_bg = "https://htmlcolorcodes.com/assets/images/colors/light-green-color-solid-background-1920x1080.png"
-    side_bg_ext = "jpg"
-
-    st.markdown(
-        f"""
-        <style>
-        .reportview-container {{
-            background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()})
-        }}
-        .sidebar .sidebar-content {{
-            background: url(data:image/{side_bg_ext};base64,{base64.b64encode(open(side_bg, "rb").read()).decode()})
-        }}
-         </style>
-        """,
-     unsafe_allow_html=True)
-    
+  
     st.title('Stroke előrejelző app')
     
     if st.button('ROC görbe megjelenítése'):
