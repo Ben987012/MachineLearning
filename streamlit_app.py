@@ -13,13 +13,13 @@ from sklearn.metrics import roc_curve, auc
 
 def main():
    st.markdown(
-   f”””
+   f"'"
    <style>
    p {
    background-image: url(‘https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg’);
    }
    </style>
-   ”””,
+   "'",
    unsafe_allow_html=True)
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
