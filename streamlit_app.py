@@ -22,9 +22,11 @@ def add_bg_from_url():
      )
 
 def main():
+    button_pressed1 = st.sidebar.button('ROC görbe megjelenítése')
+    button_pressed2 = st.sidebar.button('Modellek összevetése')
     st.title("STROKE ELŐREJELZŐ APP")
-    with st.sidebar:
-        if st.button('ROC görbe megjelenítése'):
+
+        if button_pressed1:
             # Tesztadatok előrejelzése
             y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
@@ -45,12 +47,10 @@ def main():
             plt.ylabel('False Positive arány')
             plt.title('Receiver Operating Characteristic')
             plt.legend(loc="lower right")
-         
-        if 'plt' in locals():
             st.pyplot(plt)
         
 
-        if st.button('Modellek összevetése'):
+        if button_pressed2:
             rf_accuracy = rf.score(x_test, y_test)
             knn_accuracy = knn.score(x_test, y_test)
             svm_accuracy = svm.score(x_test, y_test)
