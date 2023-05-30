@@ -10,17 +10,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://cdn.pixabay.com/photo/2019/04/24/11/27/flowers-4151900_960_720.jpg");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
 def main():
-   st.markdown(
-   f"'"
-   <style>
-   p {
-   background-image: url(‘https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg’);
-   }
-   </style>
-   "'",
-   unsafe_allow_html=True)
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
         y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
@@ -55,3 +59,4 @@ def main():
 
 if __name__ == '__main__':
    main()
+   add_bg_from_url()
