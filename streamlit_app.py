@@ -1,5 +1,5 @@
 import streamlit as st
-
+from style import *
 from strokePred import rf,knn,dtc, svm
 from strokePred import x_test, y_test
 
