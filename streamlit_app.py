@@ -45,7 +45,8 @@ def main():
             plt.ylabel('False Positive arány')
             plt.title('Receiver Operating Characteristic')
             plt.legend(loc="lower right")
-         if 'plt' in locals():
+         
+        if 'plt' in locals():
             st.pyplot(plt)
         
 
