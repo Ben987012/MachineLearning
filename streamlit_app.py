@@ -13,12 +13,10 @@ from sklearn.metrics import roc_curve, auc
 
 def main():
     st.title('Stroke előrejelző app')
-
     
-
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
-        y_pred = rf.predict(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
+        y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
         # ROC görbe számítása
         fpr, tpr, thresholds = roc_curve(y_test, y_pred)
