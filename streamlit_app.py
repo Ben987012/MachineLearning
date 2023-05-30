@@ -15,7 +15,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg");
+             background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_the_Sz%C3%A9kelys.svg/1200px-Flag_of_the_Sz%C3%A9kelys.svg.png");
              background-attachment: fixed;
              background-size: cover
          }}
