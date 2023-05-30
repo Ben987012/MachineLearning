@@ -12,7 +12,7 @@ def add_bg_from_url():
          f"""
          <style>
          .stApp {{
-             background-image: url("https://cdn.wallpaperhub.app/cloudcache/b/d/7/6/4/b/bd764bb25d49a05105060185774ba14cd2c846f7.jpg");
+             background-image: url("https://static.toiimg.com/photo/msid-87343087/87343087.jpg");
              background-attachment: fixed;
              background-size: cover
          }}
