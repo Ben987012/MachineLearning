@@ -25,7 +25,7 @@ def main():
     st.title("STROKE ELŐREJELZŐ APP")
     
     if st.button('ROC görbe megjelenítése'):
-        add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
+        #add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
         # Tesztadatok előrejelzése
         y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
@@ -49,7 +49,7 @@ def main():
         st.pyplot(plt)
 
     if st.button('Modellek összevetése'):
-        add_bg_from_url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg")
+        #add_bg_from_url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg")
         rf_accuracy = rf.score(x_test, y_test)
         knn_accuracy = knn.score(x_test, y_test)
         svm_accuracy = svm.score(x_test, y_test)
