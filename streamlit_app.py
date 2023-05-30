@@ -25,7 +25,7 @@ def main():
     st.title("STROKE ELŐREJELZŐ APP")
     
     if st.button('ROC görbe megjelenítése'):
-        add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
+       add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
        # Tesztadatok előrejelzése
         y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
