@@ -68,6 +68,6 @@ def main():
 
 if __name__ == '__main__':
    main()
-    # Alkalmazás futtatása
-    center_content()
+   # Alkalmazás futtatása
+   center_content()
    add_bg_from_url()
