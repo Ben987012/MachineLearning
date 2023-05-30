@@ -13,8 +13,7 @@ from sklearn.metrics import roc_curve, auc
 
 
 
-# Háttérkép alkalmazása
-st.markdown(page_bg_img, unsafe_allow_html=True)
+
 def main():
     # Háttérkép beállítása
     page_bg_img = '''
@@ -24,7 +23,8 @@ def main():
             background-size: cover;
         }
     </style>'''
-
+    # Háttérkép alkalmazása
+    st.markdown(page_bg_img, unsafe_allow_html=True)
     st.title('Stroke előrejelző app')
     
     if st.button('ROC görbe megjelenítése'):
