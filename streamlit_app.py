@@ -7,12 +7,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
-def add_bg_from_url(url_name):
+def add_bg_from_url():
     st.markdown(
          f"""
          <style>
          .stApp {{
-             background-image: url(url_name);
+             background-image: url(https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg);
              background-attachment: fixed;
              background-size: cover
          }}
@@ -46,7 +46,7 @@ def main():
         plt.title('Receiver Operating Characteristic')
         plt.legend(loc="lower right")
         st.pyplot(plt)
-        #add_bg_from_url("https://freerangestock.com/sample/145397/artificial-intelligence-background--abstract-ai-background-with.jpg")
+        
 
     if st.button('Modellek összevetése'):
         rf_accuracy = rf.score(x_test, y_test)
@@ -56,12 +56,8 @@ def main():
         st.write('RandomForest pontossága: {}%'.format(round((rf_accuracy*100),2)))
         st.write('KNN pontossága: {}%'.format(round((knn_accuracy*100),2)))
         st.write('SVM pontossága: {}%'.format(round((svm_accuracy*100),2)))
-        #add_bg_from_url("https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-blue-artificial-intelligence-technology-ai-robot-banner-image_196890.jpg")
-        
-        # Streamlit alkalmazás
-        st.title("Háttér visszaállítás")
-            #add_bg_from_url("https://static.toiimg.com/photo/msid-87343087/87343087.jpg")
+       
 
 if __name__ == '__main__':
    main()
-   add_bg_from_url("https://static.toiimg.com/photo/msid-87343087/87343087.jpg")
+   add_bg_from_url()
