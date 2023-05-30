@@ -16,7 +16,7 @@ def main():
 
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
-        y_pred = svm.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
+        y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
         # ROC görbe számítása
         fpr, tpr, thresholds = roc_curve(y_test, y_pred)
@@ -40,11 +40,11 @@ def main():
     if st.button('Modellek összevetése'):
         rf_accuracy = rf.score(x_test, y_test)
         knn_accuracy = knn.score(x_test, y_test)
-        dtc_accuracy = dtc.score(x_test, y_test)
+        svm_accuracy = svm.score(x_test, y_test)
         # Kiíratás
         st.write('RandomForest pontossága: {}%'.format(round((rf_accuracy*100),2)))
         st.write('KNN pontossága: {}%'.format(round((knn_accuracy*100),2)))
-        st.write('SVM pontossága: {}%'.format(round((dtc_accuracy*100),2)))
+        st.write('SVM pontossága: {}%'.format(round((svm_accuracy*100),2)))
 
 if __name__ == '__main__':
     main()
