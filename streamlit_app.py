@@ -13,19 +13,21 @@ from sklearn.metrics import roc_curve, auc
 
 def main():
     st.title('Stroke előrejelző app')
-    # Teszt adatok predikciója
-    y_pred = rf.predict(x_test)
-    # Értékelési metrikák számítása
-    accuracy = accuracy_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred)
-    recall = recall_score(y_test, y_pred)
-    f1 = f1_score(y_test, y_pred)
+    
+    if st.button('ROC görbe megjelenítése'):
+        # Teszt adatok predikciója
+        y_pred = rf.predict(x_test)
+        # Értékelési metrikák számítása
+        accuracy = accuracy_score(y_test, y_pred)
+        precision = precision_score(y_test, y_pred)
+        recall = recall_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred)
 
-    # Eredmények kiíratása
-    print("Accuracy:", accuracy)
-    print("Precision:", precision)
-    print("Recall:", recall)
-    print("F1 Score:", f1)
+        # Eredmények kiíratása
+        st.write("Accuracy:", accuracy)
+        st.write("Precision:", precision)
+        st.write("Recall:", recall)
+        st.write("F1 Score:", f1)
     
 
     if st.button('ROC görbe megjelenítése'):
