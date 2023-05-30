@@ -3,21 +3,9 @@ import streamlit as st
 from strokePred import rf,knn,dtc, svm
 from strokePred import x_test, y_test
 
-from sklearn.metrics import confusion_matrix, classification_report
-from mlxtend.plotting import plot_confusion_matrix
-
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
-
-def center_content():
-    # Középre igazított gombok
-    st.write('<div style="text-align:center">')
-    st.write('</div>', unsafe_allow_html=True)
-
-    # Középre igazított tartalom
-    st.write('</div>', unsafe_allow_html=True)
-
 
 def add_bg_from_url():
     st.markdown(
@@ -68,6 +56,4 @@ def main():
 
 if __name__ == '__main__':
    main()
-   # Alkalmazás futtatása
-   center_content()
    add_bg_from_url()
