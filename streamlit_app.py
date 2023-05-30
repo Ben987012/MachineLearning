@@ -12,6 +12,15 @@ from sklearn.metrics import roc_curve, auc
 
 
 def main():
+   st.markdown(
+   f”””
+   <style>
+   p {
+   background-image: url(‘img_file.jpg’);
+   }
+   </style>
+   ”””,
+   unsafe_allow_html=True)
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
         y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
@@ -45,13 +54,4 @@ def main():
         st.write('SVM pontossága: {}%'.format(round((svm_accuracy*100),2)))
 
 if __name__ == '__main__':
-    st.markdown(
-   f”””
-   <style>
-   p {
-   background-image: url(‘img_file.jpg’);
-   }
-   </style>
-   ”””,
-   unsafe_allow_html=True)
    main()
