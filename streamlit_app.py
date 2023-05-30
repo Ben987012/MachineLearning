@@ -14,30 +14,7 @@ from sklearn.metrics import roc_curve, auc
 def local_css(file_name):
     with open(filename) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
 def main():
-if st.button('ROC görbe megjelenítése'):
-    # Tesztadatok előrejelzése
-    y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
-
-    # ROC görbe számítása
-    fpr, tpr, thresholds = roc_curve(y_test, y_pred)
-    roc_auc = auc(fpr, tpr)
-
-    # Streamlit alkalmazás
-    st.title("ROC görbe")
-    plt.figure(figsize=(8, 6))
-    plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], color='red', linestyle='--', label='Véletlenszerű előrejelzés (AUC = 0.50)')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('Hamis pozitív arány')
-
-
-
-  
-    st.title('Stroke előrejelző app')
-    
     if st.button('ROC görbe megjelenítése'):
        # Tesztadatok előrejelzése
         y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
