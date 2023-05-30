@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 
 def main():
-    st.set_page_config(layout="wide", page_title='Stroke előrejelző app', page_icon="🧠")
+    
     st.title('Stroke előrejelző app')
     st.markdown(
     """
