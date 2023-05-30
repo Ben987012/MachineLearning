@@ -44,9 +44,9 @@ def main():
         knn_accuracy = knn.score(x_test, y_test)
         dtc_accuracy = dtc.score(x_test, y_test)
         # Kiíratás
-        st.write('RandomForest pontossága: {}%'.format(round(rf_accuracy*100),4))
-        st.write('KNN pontossága: {}%'.format(round(knn_accuracy*100),4))
-        st.write('SVM pontossága: {}%'.format(round(dtc_accuracy*100),4))
+        st.write('RandomForest pontossága: {}%'.format(round((rf_accuracy*100),4)))
+        st.write('KNN pontossága: {}%'.format(round((knn_accuracy*100),4)))
+        st.write('SVM pontossága: {}%'.format(round((dtc_accuracy*100),4)))
 
 if __name__ == '__main__':
     main()
