@@ -15,25 +15,27 @@ def main():
     st.title('Stroke előrejelző app')
 
     if st.button('ROC görbe megjelenítése'):
-       # Valószínűségek meghatározása
-        y_scores = knn.predict_proba(y_test)[:, 1]
+       # Tesztadatok előrejelzése
+        y_pred = knn.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
 
-        # ROC görbe kiszámítása
-        fpr, tpr, _ = roc_curve(x_test, y_scores)
+        # ROC görbe számítása
+        fpr, tpr, thresholds = roc_curve(y_test, y_pred)
         roc_auc = auc(fpr, tpr)
 
-        # Streamlit alkalmazás létrehozása
-        st.title("KNN ROC görbe")
+        # Streamlit alkalmazás
+        st.title("ROC görbe")
 
-        # ROC görbe kirajzolása
-        fig, ax = plt.subplots()
-        ax.plot(fpr, tpr, label=f'ROC görbe (AUC = {roc_auc:.2f})')
-        ax.plot([0, 1], [0, 1], 'k--')
-        ax.set_xlabel('Hamis pozitív arány')
-        ax.set_ylabel('Valós pozitív arány')
-        ax.set_title('Receiver Operating Characteristic')
-        ax.legend(loc="lower right")
-        st.pyplot(fig)
+        # ROC görbe megjelenítése
+        plt.figure(figsize=(8, 6))
+        plt.plot(fpr, tpr, color='blue', label='ROC görbe (AUC = %0.2f)' % roc_auc)
+        plt.plot([0, 1], [0, 1], color='red', linestyle='--', label='Véletlenszerű előrejelzés (AUC = 0.50)')
+        plt.xlim([0.0, 1.0])
+        plt.ylim([0.0, 1.05])
+        plt.xlabel('Hamis pozitív arány')
+        plt.ylabel('Eredeti pozitív arány')
+        plt.title('Receiver Operating Characteristic')
+        plt.legend(loc="lower right")
+        st.pyplot(plt)
 
     if st.button('Modellek összevetése'):
         rf_accuracy = rf.score(x_test, y_test)
