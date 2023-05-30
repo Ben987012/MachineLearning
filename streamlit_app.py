@@ -22,10 +22,8 @@ def add_bg_from_url():
      )
 
 def main():
-    # 1 oszlopot hozunk létre
-    col = st.beta_columns(1)
     st.title("STROKE ELŐREJELZŐ APP")
-    with col[0]:
+    with st.sidebar:
         if st.button('ROC görbe megjelenítése'):
             # Tesztadatok előrejelzése
             y_pred = rf.predict_proba(x_test)[:, 1]  # Első oszlopban a pozitív osztály előrejelzéseinek valószínűségeit tároljuk
